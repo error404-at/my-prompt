@@ -8,13 +8,68 @@
 
 ## 1. 讲义内容要求
 
-### 1.1 只要内容涉及某主题或问题，必须至少覆盖以下部分：（这只是最基础的要求，或者说是指导性方针，针对每个部分还会要求不少补充不少内容）
-a. 问题与目标（要证什么/要推出什么/要构造什么/想要解决什么问题）
-b. 定义与概念（对象是什么、类型/维度、条件、边界 + 不退化的简单例子）
-c. 定理/性质/算法步骤（完整陈述 + 适用条件 + 不退化的简单例子）
-d. 推导/计算/证明/正确性/分析（不跳步）
-e. 易错点与边界情况（条件为何必要、哪里容易误用）
-f. 例子、例题与习题
+### 1.1 核心讲解内容的分类学覆盖要求 (Taxonomic Coverage Requirements)
+
+只要讲解内容涉及某主题、问题或论文/代码，必须严格按照以下**“模块化认识论框架”**提取并覆盖对应内容。所有提取的信息必须归类整理，禁止散乱堆砌：
+
+#### 1.1.1 通用基础框架（必须包含的 6 大基干模块）
+
+| 模块名称 (专业术语) | 涵盖的具体内容 (对应原 a-f 并扩充) | 提取与讲解要求 |
+| :--- | :--- | :--- |
+| **I. 目的论与问题规约<br>(Teleology & Problem Formulation)** | **前置动机**、**形式化目标**、**理论生态位**。<br>包含：要解决的具体矛盾、输入/输出的宏观定义、在当前知识树/前沿(SOTA)中的位置。 | 必须讲清“为什么需要它”。若是论文/博客，需提取“它击破了什么旧有痛点”；明确给出问题的严谨数学/逻辑描述。 |
+| **II. 本体论与形式表征<br>(Ontology & Formal Representation)** | **定义**、**概念**、**符号系统 (Notation)**、**对象类型/维度**。<br>包含：所有核心术语的无歧义界定、数据结构/张量形状的先验设定。 | 同类概念必须聚类（如：代数定义放一块，几何定义放一块）。每个核心定义必须紧跟一个**不退化的最简实例化对象 (Minimal Non-degenerate Instance)**。 |
+| **III. 核心机制与动力学<br>(Core Mechanics & Dynamics)** | **定理/性质**、**算法/模型流程**、**转移状态**。<br>包含：定理的完整陈述、算法的伪代码逻辑、系统的状态转移方程或神经网络的前向计算图。 | 区分“结构性定理”（是什么）与“过程性操作”（怎么做）。对于算法/模型，必须显式标出**不变量 (Invariants)** 或**守恒量**。 |
+| **IV. 认识论解析与验证<br>(Epistemic Analysis & Validation)** | **推导/证明**、**正确性分析**、**收敛性/复杂度边界**。<br>包含：不跳步的逻辑推演、渐近时间/空间复杂度分析、误差理论或经验验证（Empirical Results）。 | 证明或推导必须分层（Lemmas $\rightarrow$ Main Theorem）；若是论文，需提炼其核心消融实验（Ablation）所证明的子结论。 |
+| **V. 边界划界与病态隔离<br>(Boundary Delineation & Pathology)** | **适用条件**、**局限性 (Limitations)**、**易错点**、**反常/病态情形**。<br>包含：使结论崩溃的临界条件、算法失效的退化数据分布。 | 必须利用**反例 (Counterexamples)** 或**对比组 (Contrastive Examples)** 划定理论的安全边界，明确“去掉某个条件为什么不行”。 |
+| **VI. 图式结晶与具象化<br>(Schema Crystallization & Instantiation)** | **典型模型 (Canonical Models)**、**白盒演算例子 (Worked Examples)**、**基准例题/习题**。 | 必须提供“手算可推演”（Hand-simulable）的全链路例子。严禁纯参数堆砌的废计算，例子必须是为了显露结构 (Structure-revealing)。 |
+
+
+### 1.1.2 垂直领域特化要求 (Domain-Specific Specialized Extensions)
+
+由于信息源跨越教材、论文与工程博客，且细分领域差异巨大。在执行上述通用框架时，若识别出当前内容属于以下三大领域，**必须额外强制追加/侧重提取以下子领域特化结构**：
+
+#### 🟢 纯数与应用数学领域 (Mathematics: Pure & Applied)
+
+| 核心考察面 | 必须提取与覆盖的特化内容 (Mathematical Specialization) |
+| :--- | :--- |
+| **存在性与唯一性 (Existence & Uniqueness)** | 任何新定义的解、映射或结构，必须明确其存在性条件与唯一性判据。 |
+| **等价刻画链 (TFAE - The Following Are Equivalent)** | 若涉及定义的多种表述（如代数特征、几何特征、拓扑特征），必须提炼出完整的等价命题链条，并解释不同视角的优势。 |
+| **对偶与同构结构 (Dualities & Isomorphisms)** | 必须标明对象是否存在对偶空间（如拉格朗日对偶、图的对偶）或与已知体系的同构映射，展示深层对称性。 |
+| **几何化投影 (Geometric Projection)** | 对于代数/分析中的抽象关系（如范数、迹、微商、极值条件），强制要求提供对应的几何/拓扑空间直观图像。 |
+
+#### 🔵 计算机科学与系统工程 (Computer Science: Algorithms & Systems)
+
+| 核心考察面 | 必须提取与覆盖的特化内容 (CS Specialization) |
+| :--- | :--- |
+| **数据流与内存布局 (Data Flow & Memory Layout)** | 对象在内存/磁盘中的实际排布方式，数据流转的 I/O 规约（Contract）以及状态机的转换图。 |
+| **时空权衡与渐近极限 (Space-Time Trade-offs & Asymptotics)** | 必须明确最坏 (Worst-case)、平均 (Average) 与摊还 (Amortized) 复杂度。如果存在时空权衡机制（如缓存、预计算），必须单独剖析。 |
+| **并发与同步边界 (Concurrency & Synchronization)** | 若涉及多线程/分布式内容，必须提取竞态条件 (Race Conditions)、锁机制、一致性协议 (Consistency Protocols) 或 CAP 权衡。 |
+| **边界测试向量 (Edge-case Test Vectors)** | 算法讲解必须包含特定的边界触发数据（如：空集、全连通图、极大/极小整数溢出点、环形依赖）。 |
+
+#### 🔴 人工智能与机器学习 (Artificial Intelligence: ML / DL / RL)
+
+| 核心考察面 | 必须提取与覆盖的特化内容 (AI Specialization) |
+| :--- | :--- |
+| **归纳偏置与数据先验 (Inductive Bias & Data Priors)** | 模型架构设计到底迎合了数据的什么特性？（例如：CNN 对应平移不变性，Transformer 对应全局图注意力，GNN 对应拓扑同构）。必须把隐性假设显式化。 |
+| **优化全景图 (Optimization Landscape)** | 目标函数（Objective/Loss Function）的数学解剖，正则化项的惩罚机制，梯度的流动特性（如消失/爆炸的防御机制），以及优化器的选择逻辑。 |
+| **张量流转动力学 (Tensor Flow Dynamics)** | 必须给出核心组件前后端精确的 **张量形状变化追踪 (Tensor Shape Tracking)**，例如：`[B, T, C] -> [B, T, H, D] -> [B, C]`。 |
+| **消融与经验归因 (Ablation & Empirical Attribution)** | （针对论文/技术博客）必须提取剥离实验：模块 A 到底贡献了什么？如果去掉模块 B 性能会掉多少？将黑盒实验结果归约为白盒理论解释。 |
+
+### 1.1.3 隐性知识插补与反偷懒机制 (Implicit Knowledge Imputation & Anti-Laziness)
+
+**最高警告**：上传的文件仅仅是“触发器（Trigger）”和“讲述主线”，**绝对不是**知识的边界！严禁将讲义写成对原文的“翻译”、“压缩”或“高级摘要”。你必须像一位顶尖的领域导师，时刻监测初学者的认知盲区，并**主动调用你自身的知识库**来进行补全。
+
+只要原文中出现了跳跃、省略或预设了过高的门槛，必须强制执行以下**插补机制 (Imputation Protocols)**：
+
+| 机制名称 (术语) | 触发条件 (何时应当主动延展) | 强制执行的操作 (LLM 必须自主生成) |
+| :--- | :--- | :--- |
+| **I. 前置依赖注入<br>(Prerequisite Injection)** | 原文直接使用了一个专业概念/定理，且假设读者已经懂了（即作者的“隐性知识 Tacit Knowledge”）。 | 必须在引入该点前，向下追溯一层依赖树。插入一个**【前置知识胶囊 (Prerequisite Capsule)】**，用一两段话快速补齐该概念的定义或直观理解。 |
+| **II. 缺失要件的自主构筑<br>(Autonomous Module Construction)** | 原文缺乏“1.1.1 基础框架”中要求的要件（例如：原文只有定理没有证明，只有公式没有例子，只有算法没有复杂度分析）。 | **绝不允许以“原文未提供”为由省略！** 你必须动用自身的预训练知识库，**自主构筑并补全**缺失的证明、设计出高信噪比的例子、补齐推导过程。 |
+| **III. 行业黑话/Folklore的降维解析<br>(De-jargonization & Folklore Unpacking)** | 原文出现了该领域的“行话”、“约定俗成的套路”或“众所周知的常识”（例如：“通过标准推导可知”、“显然具有马尔可夫性”、“不妨设”）。 | 严禁照抄“显然/标准推导”。必须把这些“行业常识”展开为初学者能看懂的具体数学操作或逻辑动机。解释**为什么**在这里可以“不妨设”。 |
+| **IV. 横向生态锚定<br>(Lateral Ecological Anchoring)** | 原文提出了一种孤立的方法/模型，没有提及其竞品或前身（论文极其常见）。 | 必须主动建立横向对比。自主引入该方法的 1-2 个经典对比对象（Contrastive Baselines），解释它在学术进化树上的位置（它是谁的改进？它被谁替代？）。 |
+
+**一句话自检标准**：如果读者在阅读你的讲义时，脑海中冒出“等等，这个概念是怎么突然冒出来的？”或“为什么突然就能这样变换？”，就说明你偷懒了，没有完成隐性知识的插补。
+
 
 ### 1.2 讲义必须自洽独立（不依赖外部指代）和覆盖全部内容
 a.禁止外部依赖指代：不得使用“书上/原文/讲义里/如图/见文件/作者说”等让读者必须回看材料才能理解的表述
@@ -375,3 +430,32 @@ $$
 2. **高阶抽象的降维解读 (De-abstraction of Higher-order Concepts)：** 涉及范畴论、抽象代数、算子理论等初学者极易迷失的领域。需通过**“同构映射”**将其降维至初学者熟悉的初等对象。
 3. **定理的“相变点” (Phase Transition of Theorems)：** 当定理的结论依赖于某个极具限制性的条件（如：要求矩阵必须“正定”、空间必须“完备”、过程必须“马尔可夫”）时，必须解释该条件如何充当了结论成立的**“结构支撑 (Structural Scaffold)”**或**“逻辑壁垒 (Logical Barrier)”**。
 4. **多表征等价转换 (Multi-representational Equivalence)：** 当同一个对象在代数、几何、分析中有完全不同的表现形式（如：特征值之于算子伸缩、之于多项式根、之于谱分布）时，必须提供**“全景式转换直观”**。
+
+## 5.输出前逐条例自检
+
+检查上面的这些条例是否都严格认真地执行，我再次把提纲列出来，但注意自检时要对照上面每条条例的具体要求来检查，而不是只看下面的提纲：
+
+1. 讲义内容要求
+  1.1 只要内容涉及某主题或问题，必须至少覆盖以下部分：（这只是最基础的要求，或者说是指导性方针，针对每个部分还会要求不少补充不少内容）
+      - 1.1.1 通用基础框架（必须包含的 6 大基干模块）
+      - 1.1.2 垂直领域特化要求 (Domain-Specific Specialized Extensions)
+      - 1.1.3 隐性知识插补与反偷懒机制 (Implicit Knowledge Imputation & Anti-Laziness)
+  1.2 讲义必须自洽独立（不依赖外部指代）和覆盖全部内容
+  1.3 除1.1外，面向初学者一定要补充内容
+      - 不退化的例子
+      - 知识体系的结构化重构与元分析 (Structural Reconstruction & Meta-Analysis)
+
+2. 认知谱系与启发式重构 (Cognitive Genealogy & Heuristic Reconstruction)
+  2.1 结构本质与目的论概括 (Structural Essence & Teleological Analysis)
+  2.2 认识论拆解与逻辑重构 (Epistemic Decomposition & Logical Reconstruction)
+  2.3 方法论比较与权衡 (Methodological Comparative Analysis)
+  2.4 图式结晶与迁移 (Schema Crystallization & Transferability)
+
+3. 不跳步原则（代数/逻辑等步骤不省略）
+
+4. 现象学还原与本体论直观 (Phenomenological Reduction & Ontological Intuition)
+  4.1 认知维度定义 (Cognitive Dimensions)
+  4.2 直观构建的硬标准：三位一体映射 (The Trinity Mapping Standard)
+  4.3 触发机制：知识点的“透视”介入标准 (Triggering Criteria)
+
+当然，还要注意正确性，不能把错的内容讲给我了
