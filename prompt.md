@@ -31,3 +31,4 @@
    - 检查全文不包含任何被禁用的特殊引用符号/内部标记。
    若任一检查不通过，必须先修复再输出。
 6. 全文必须区分标量/向量/矩阵：标量用斜体 \(x\)，向量用粗体 \(\mathbf{x}\)(或箭头 \(\vec{x}\))，矩阵用粗体大写 \(\mathbf{A}\)；内积写 \(\mathbf{x}^\top \mathbf{y}\)，外积写 \(\mathbf{x}\mathbf{y}^\top\)，逐元素乘法写 \(\odot\)。每个关键变量首次出现必须标注维度并保证后续运算维度一致；同名符号不得跨类型复用
+7. KaTeX 公式中，只使用常见渲染器稳定支持的标准命令。凡是教材里的函数名、算子名、缩写名，如果不是明确的标准 KaTeX 内置命令，就不要写成 \Xxx，而应写成 \operatorname{Xxx}。优先使用标准写法（如 \sin,\cos,\tan,\cot,\sinh,\cosh,\tanh,\coth,\ln,\exp,\arg,\arcsin,\arccos,\arctan）；教材若使用大写或非标准缩写记号，也统一改写为 \operatorname{...}。
