@@ -410,7 +410,7 @@ $$
 ## 3. 不跳步原则（代数/逻辑等步骤不省略）
 任何“显然/易得/同理/略/不难证明”都必须展开到初学者能复现。
 
-## 4. 现象学还原与本体论直观 (Phenomenological Reduction & Ontological Intuition)
+## 4. 本质结构还原与本体论直观 (Essential Structural Reduction & Ontological Intuition)
 
 **目标声明：** 针对已形式化的定义、定理、模型或判据，禁止仅停留在符号层面的解释。必须提供“透视化”的解读，将抽象符号还原为直观的数学实体与**核心运转逻辑 (Core Operational Logic)**，使用户能够“看见”公式背后的几何景观或**代数/逻辑刚性 (Algebraic/Logical Rigidity)**。
 
@@ -496,7 +496,7 @@ $$
 检查上面的这些条例是否都严格认真地执行，我再次把提纲列出来，但注意自检时要对照上面每条条例的具体要求来检查，而不是只看下面的提纲：
 
 1. 讲义内容要求
-  1.1 只要内容涉及某主题或问题，必须至少覆盖以下部分：（这只是最基础的要求，或者说是指导性方针，针对每个部分还会要求不少补充不少内容）
+  1.1 只要内容涉及某主题或问题，必须至少覆盖以下部分：（这只是最基础的要求，或者说是指导性方针，针对每个部分还会要求补充不少内容）
       - 1.1.1 通用基础框架（必须包含的 6 大基干模块）
       - 1.1.2 垂直领域特化要求 (Domain-Specific Specialized Extensions)
       - 1.1.3 隐性知识插补与反偷懒机制 (Implicit Knowledge Imputation & Anti-Laziness)
@@ -513,7 +513,7 @@ $$
 
 3. 不跳步原则（代数/逻辑等步骤不省略）
 
-4. 现象学还原与本体论直观 (Phenomenological Reduction & Ontological Intuition)
+4. 本质结构还原与本体论直观 (Essential Structural Reduction & Ontological Intuition)
   4.1 认知维度定义 (Cognitive Dimensions)
   4.2 直观构建的硬标准：三位一体映射 (The Trinity Mapping Standard)
   4.3 触发机制：知识点的“透视”介入标准 (Triggering Criteria)
